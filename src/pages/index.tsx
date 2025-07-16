@@ -68,7 +68,7 @@ export default function Home() {
 
   return (
     <>
-      <F2ADialog setOpen={(o) => setOpenF2A(o)} open={openF2A} />
+      <F2ADialog setOpen={o => setOpenF2A(o)} open={openF2A} />
       <Head>
         <title>Next base app</title>
       </Head>
@@ -96,9 +96,7 @@ export default function Home() {
           <Button onClick={() => setOpenF2A(true)}>Show F2A Bind</Button>
         </Box>
         <>
-          <Select
-            inputProps={{ 'aria-label': 'Without label' }}
-          >
+          <Select inputProps={{ 'aria-label': 'Without label' }}>
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
           </Select>

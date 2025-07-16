@@ -3,8 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import speakeasy from 'speakeasy'
 import QRCode from 'qrcode'
 
-
-export const F2ADialog = ({ open, setOpen } : { open: boolean; setOpen: (o: boolean) => void }) => {
+export const F2ADialog = ({ open, setOpen }: { open: boolean; setOpen: (o: boolean) => void }) => {
   const [secretIns, setSecretIns] = useState<speakeasy.GeneratedSecret | undefined>(undefined)
   const [QRCodeImg, setQRCodeImg] = useState<string | null>(null)
   const [authCode, setAuthCode] = useState<string | null>(null)
@@ -15,7 +14,7 @@ export const F2ADialog = ({ open, setOpen } : { open: boolean; setOpen: (o: bool
       issuer: 'BounceBit'
     })
     console.log('secret?.otpauth_url', secret?.otpauth_url)
-    QRCode.toDataURL(secret?.otpauth_url ?? '').then((r) => {
+    QRCode.toDataURL(secret?.otpauth_url ?? '').then(r => {
       setQRCodeImg(r)
     })
     setSecretIns(secret)
