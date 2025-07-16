@@ -1,5 +1,5 @@
 import Provider from './provider'
-import GlobalHeader from 'components/GlobalHeader';
+import GlobalHeader from 'components/GlobalHeader'
 
 export const metadata = {
   title: 'Next.js',

@@ -4,17 +4,15 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
 import SvgLogo from 'assets/svg/header_logo.svg'
 import SvgPhone from 'assets/svg/svg_phone.svg'
-import SvgTwitter from 'assets/svg/twitter.svg';
-import SvgUnion from 'assets/svg/union.svg';
-import SvgTg from 'assets/svg/tg.svg';
+import SvgTwitter from 'assets/svg/twitter.svg'
+import SvgUnion from 'assets/svg/union.svg'
+import SvgTg from 'assets/svg/tg.svg'
 
-const HEADER_HEIGHT = 80;
+const HEADER_HEIGHT = 80
 
 export default function GlobalHeader() {
-  const theme = useTheme();
 
   return (
     <Box
@@ -33,16 +31,25 @@ export default function GlobalHeader() {
         top: 0,
         right: 0,
         zIndex: 1200,
-        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
       }}
     >
-      <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', height: '100%' }}>
+      <Box
+        sx={{
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          position: 'relative',
+          height: '100%'
+        }}
+      >
         {/*区域1*/}
         <Stack direction="row" alignItems="center" spacing={2} sx={{ minWidth: 180 }}>
           <Box>
             <SvgLogo />
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, ml: 28}}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, ml: 28 }}>
             <SvgTwitter style={{ width: 20, height: 20, cursor: 'pointer' }} />
             <SvgUnion style={{ width: 28, height: 21, cursor: 'pointer' }} />
             <SvgTg style={{ width: 20, height: 20, cursor: 'pointer' }} />
@@ -66,7 +73,7 @@ export default function GlobalHeader() {
               px: 0,
               py: 0,
               letterSpacing: 0,
-              '&:hover': { borderColor: '#F6FF76', background: 'rgba(246,255,118,0.08)' },
+              '&:hover': { borderColor: '#F6FF76', background: 'rgba(246,255,118,0.08)' }
             }}
           >
             docs
@@ -87,7 +94,7 @@ export default function GlobalHeader() {
               px: 0,
               py: 0,
               letterSpacing: 0,
-              '&:hover': { borderColor: '#F6FF76', background: 'rgba(246,255,118,0.08)' },
+              '&:hover': { borderColor: '#F6FF76', background: 'rgba(246,255,118,0.08)' }
             }}
           >
             stats
@@ -109,7 +116,7 @@ export default function GlobalHeader() {
               py: 0,
               letterSpacing: 0,
               boxShadow: 'none',
-              '&:hover': { bgcolor: '#F6FF76', opacity: 0.9 },
+              '&:hover': { bgcolor: '#F6FF76', opacity: 0.9 }
             }}
           >
             launch app
@@ -123,7 +130,7 @@ export default function GlobalHeader() {
             bottom: 0,
             display: 'flex',
             alignItems: 'center',
-            bgcolor: 'transparent',
+            bgcolor: 'transparent'
           }}
         >
           <SvgPhone style={{ width: 14, height: 14, marginRight: 6 }} />
@@ -132,7 +139,7 @@ export default function GlobalHeader() {
               fontFamily: 'DM Sans',
               fontWeight: 400,
               fontSize: 10,
-              color: 'rgba(255,255,255,0.5)',
+              color: 'rgba(255,255,255,0.5)'
             }}
           >
             use mobile to open the app
@@ -140,5 +147,5 @@ export default function GlobalHeader() {
         </Box>
       </Box>
     </Box>
-  );
+  )
 }
