@@ -1,5 +1,5 @@
+'use client'
 import { Box, Button, Container, Divider, Select, Stack, Typography, styled, MenuItem, InputLabel } from '@mui/material'
-
 import Checkbox from 'components/Checkbox'
 import Input from 'components/Input'
 import { SupportedChainId } from 'constants/chains'
@@ -23,13 +23,6 @@ const StyledContainer = styled(Container)(({ theme }) => ({
 function ConnectButton() {
   const { account } = useActiveWeb3React()
   const walletModalToggle = useWalletModalToggle()
-
-  // fix hydration err
-  // const [isClient, setIsClient] = useState(false)
-  // useEffect(() => {
-  //   setIsClient(true)
-  // }, [])
-
   return (
     <Stack>
       <Button

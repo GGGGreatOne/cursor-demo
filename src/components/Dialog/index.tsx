@@ -7,7 +7,7 @@ export const F2ADialog = ({ open, setOpen }: { open: boolean; setOpen: (o: boole
   const [secretIns, setSecretIns] = useState<speakeasy.GeneratedSecret | undefined>(undefined)
   const [QRCodeImg, setQRCodeImg] = useState<string | null>(null)
   const [authCode, setAuthCode] = useState<string | null>(null)
-  const [verified, setVerified] = useState(false)
+  const [, setVerified] = useState(false)
   const generateSecret = useCallback(async () => {
     const secret = speakeasy.generateSecret({
       name: 'Test APP',
@@ -49,7 +49,7 @@ export const F2ADialog = ({ open, setOpen }: { open: boolean; setOpen: (o: boole
 
   useEffect(() => {
     generateSecret().then()
-  }, [])
+  }, [generateSecret])
 
   return (
     <Dialog open={open} onClose={() => setOpen(false)}>
