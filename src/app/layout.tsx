@@ -1,4 +1,5 @@
 import Provider from './provider'
+import GlobalHeader from 'components/GlobalHeader';
 
 export const metadata = {
   title: 'Next.js',
@@ -9,7 +10,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <Provider>{children}</Provider>
+        <GlobalHeader />
+        <div style={{ marginTop: 80 }}>
+          <Provider>{children}</Provider>
+        </div>
       </body>
     </html>
   )
