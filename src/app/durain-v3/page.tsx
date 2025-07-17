@@ -1,10 +1,11 @@
 'use client'
 import React from 'react'
 import { Box } from '@mui/material'
-import UserChart from 'components/durain/UserChart'
 import InfoCard from 'components/durain/InfoCard'
 import BoradCard from 'components/durain/BoradCard'
-import TotalVolume from 'components/durain/TotalVolume'
+import dynamic from 'next/dynamic';
+const UserChart = dynamic(() => import('components/durain/UserChart'), { ssr: false });
+const TotalVolume = dynamic(() => import('components/durain/TotalVolume'), { ssr: false });
 
 export default function DurainV3Page() {
   return (
