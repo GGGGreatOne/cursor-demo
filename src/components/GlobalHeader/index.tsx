@@ -13,7 +13,6 @@ import SvgTg from 'assets/svg/tg.svg'
 const HEADER_HEIGHT = 80
 
 export default function GlobalHeader() {
-
   return (
     <Box
       sx={{
