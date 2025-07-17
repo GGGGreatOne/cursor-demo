@@ -57,8 +57,8 @@ export default function TotalVolume() {
           fontSize: 14,
           // ECharts 可能传字符串
           formatter: function (v: any) {
-            const num = typeof v === 'number' ? v : v;
-            return num;
+            const num = typeof v === 'number' ? v : v
+            return num
           }
         },
         axisLine: { lineStyle: { color: 'rgba(255,255,255,0.2)' } },
@@ -69,10 +69,13 @@ export default function TotalVolume() {
           type: 'value',
           name: '',
           axisLabel: {
-            color: '#DDD', fontFamily: 'DM Sans', fontWeight: 500, fontSize: 14,
+            color: '#DDD',
+            fontFamily: 'DM Sans',
+            fontWeight: 500,
+            fontSize: 14,
             formatter: function (v: any) {
-              const num = typeof v === 'number' ? v : Number(v);
-              return `${(num / 1000).toFixed(2)}K`;
+              const num = typeof v === 'number' ? v : Number(v)
+              return `${(num / 1000).toFixed(2)}K`
             }
           },
           splitLine: { lineStyle: { color: 'rgba(255,255,255,0.2)', type: 'dashed' } }
@@ -81,10 +84,13 @@ export default function TotalVolume() {
           type: 'value',
           name: '',
           axisLabel: {
-            color: '#9F8527', fontFamily: 'DM Sans', fontWeight: 500, fontSize: 14,
+            color: '#9F8527',
+            fontFamily: 'DM Sans',
+            fontWeight: 500,
+            fontSize: 14,
             formatter: function (v: any) {
-              const num = typeof v === 'number' ? v : Number(v);
-              return `${(num / 1000).toFixed(2)}K`;
+              const num = typeof v === 'number' ? v : Number(v)
+              return `${(num / 1000).toFixed(2)}K`
             }
           },
           splitLine: { show: false }
