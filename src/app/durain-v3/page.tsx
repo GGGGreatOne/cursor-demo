@@ -3,9 +3,9 @@ import React from 'react'
 import { Box } from '@mui/material'
 import InfoCard from 'components/durain/InfoCard'
 import BoradCard from 'components/durain/BoradCard'
-import dynamic from 'next/dynamic';
-const UserChart = dynamic(() => import('components/durain/UserChart'), { ssr: false });
-const TotalVolume = dynamic(() => import('components/durain/TotalVolume'), { ssr: false });
+import dynamic from 'next/dynamic'
+const UserChart = dynamic(() => import('components/durain/UserChart'), { ssr: false })
+const TotalVolume = dynamic(() => import('components/durain/TotalVolume'), { ssr: false })
 
 export default function DurainV3Page() {
   return (
