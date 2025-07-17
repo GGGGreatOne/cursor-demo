@@ -1,9 +1,10 @@
 'use client'
 import React from 'react'
 import { Box } from '@mui/material'
-import UserChart from 'components/UserChart'
-import InfoCard from 'components/InfoCard'
-import BoradCard from 'components/BoradCard'
+import UserChart from 'components/durain/UserChart'
+import InfoCard from 'components/durain/InfoCard'
+import BoradCard from 'components/durain/BoradCard'
+import TotalVolume from 'components/durain/TotalVolume'
 
 export default function DurainV3Page() {
   return (
@@ -29,6 +30,7 @@ export default function DurainV3Page() {
         ]}
       />
       <UserChart />
+      <TotalVolume />
     </Box>
   )
 }
