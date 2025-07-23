@@ -1,6 +1,12 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
-import * as echarts from 'echarts'
+import * as echarts from 'echarts/core'
+import { PieChart } from 'echarts/charts'
+import { TooltipComponent, GraphicComponent } from 'echarts/components'
+import { CanvasRenderer } from 'echarts/renderers'
+import { LabelLayout } from 'echarts/features'
+
+echarts.use([PieChart, TooltipComponent, GraphicComponent, CanvasRenderer, LabelLayout])
 import tgeLogo from '../../assets/tge_logo.png'
 import useBreakpoint from '../../hooks/useBreakpoint'
 
@@ -50,7 +56,6 @@ export default function OverviewPage() {
               overflow: '',
               // position: 'outside',
               formatter: function (params: any) {
-                console.log('params', params)
                 return isSM
                   ? `{a|${params.value}%}\n{b|${params.data.mobileLabel[0]}}\n{c|${params.data.mobileLabel[1]}}`
                   : `{a|${params.value}%}\n{b|${params.name}}`
@@ -113,7 +118,7 @@ export default function OverviewPage() {
                 return {
                   align: 'left',
                   verticalAlign: 'top',
-                  y: 0
+                  y: params.labelRect.y - 10
                 }
               }
               if (params.dataIndex === 0 && isSM) {
@@ -121,7 +126,7 @@ export default function OverviewPage() {
                   align: 'right',
                   verticalAlign: 'top',
                   x: params.labelRect.x + 60,
-                  y: 0
+                  y: params.labelRect.y - 60
                 }
               }
               if (params.dataIndex === 2 && isSM) {
@@ -169,7 +174,6 @@ export default function OverviewPage() {
       })
       // resize 监听
       const handleResize = () => {
-        console.log('handleResize chartSize', pieChartInstance.current)
         pieChartInstance.current && pieChartInstance.current.resize()
       }
       window.addEventListener('resize', handleResize)
@@ -213,7 +217,7 @@ export default function OverviewPage() {
         ref={pieChartRef}
       />
       {/* 右下角浮层 */}
-      {!isSM && (
+      {typeof window !== 'undefined' && !isSM && (
         <div
           style={{
             position: 'fixed',
