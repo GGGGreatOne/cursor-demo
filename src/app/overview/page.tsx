@@ -120,7 +120,7 @@ export default function OverviewPage() {
                 return {
                   align: 'right',
                   verticalAlign: 'top',
-                  x: params.labelRect.x + 80,
+                  x: params.labelRect.x + 60,
                   y: 0
                 }
               }
