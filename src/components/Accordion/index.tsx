@@ -4,21 +4,22 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 // import Typography from '@mui/material/Typography'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
-interface Props {
+
+interface AccordionProps {
   summary: string | JSX.Element
   details: string | JSX.Element
   expanded: boolean
   onChange: () => void
 }
 
-export default function _Accordion(props: Props) {
-  const { summary, details, onChange, expanded } = props
-
+export default function _Accordion({ summary, details, onChange, expanded }: AccordionProps) {
   return (
     <Accordion
       onChange={onChange}
       sx={{
         boxShadow: 'none',
+        background: 'transparent',
+        border: 'none',
         '& .MuiAccordionSummary-content': {
           margin: '20px 0'
         }
