@@ -38,43 +38,43 @@ export default function Login() {
     e: React.ClipboardEvent<HTMLInputElement> | React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLInputElement>,
     idx: number
   ) => {
-    let inputVal = '';
+    let inputVal = ''
     if ('clipboardData' in e) {
-      inputVal = e.clipboardData.getData('Text');
+      inputVal = e.clipboardData.getData('Text')
     } else if ('target' in e && 'value' in e.target) {
-      inputVal = (e.target as HTMLInputElement).value;
+      inputVal = (e.target as HTMLInputElement).value
     }
     // 粘贴6位
     if (/^[0-9a-zA-Z]{6}$/.test(inputVal)) {
-      setCode(inputVal.split('').slice(0, 6));
+      setCode(inputVal.split('').slice(0, 6))
       inputVal.split('').forEach((char, i) => {
-        const ref = codeRefs.current[i];
-        if (ref) ref.value = char;
-      });
-      if (codeRefs.current[5]) codeRefs.current[5].focus();
-      e.preventDefault?.();
-      return;
+        const ref = codeRefs.current[i]
+        if (ref) ref.value = char
+      })
+      if (codeRefs.current[5]) codeRefs.current[5].focus()
+      e.preventDefault?.()
+      return
     }
     // 连续输入多位
     if (inputVal.length > 1) {
-      const chars = inputVal.split('').slice(0, 6 - idx);
-      const newCode = [...code];
+      const chars = inputVal.split('').slice(0, 6 - idx)
+      const newCode = [...code]
       chars.forEach((char, i) => {
-        newCode[idx + i] = char;
-        const ref = codeRefs.current[idx + i];
-        if (ref) ref.value = char;
-      });
-      setCode(newCode);
-      const lastRef = codeRefs.current[idx + chars.length - 1];
-      if (lastRef) lastRef.focus();
-      e.preventDefault?.();
-      return;
+        newCode[idx + i] = char
+        const ref = codeRefs.current[idx + i]
+        if (ref) ref.value = char
+      })
+      setCode(newCode)
+      const lastRef = codeRefs.current[idx + chars.length - 1]
+      if (lastRef) lastRef.focus()
+      e.preventDefault?.()
+      return
     }
     // 单字符输入（只处理输入，不处理删除跳格）
     if (inputVal.length <= 1) {
-      handleCodeChange(idx, inputVal);
+      handleCodeChange(idx, inputVal)
     }
-  };
+  }
 
   // 验证码提交
   const handleCodeSubmit = (e: React.FormEvent) => {
@@ -265,7 +265,7 @@ export default function Login() {
                   boxSizing: 'border-box',
                   alignItems: 'center',
                   position: 'relative',
-                  overflow: 'hidden',
+                  overflow: 'hidden'
                 }}
               >
                 {code.map((c, i) => (
@@ -301,7 +301,7 @@ export default function Login() {
                           fontWeight: 500,
                           flex: 1,
                           maxWidth: 48,
-                          minWidth: 0,
+                          minWidth: 0
                         }
                       }}
                       outlined
@@ -316,7 +316,7 @@ export default function Login() {
                         fontWeight: 500,
                         fontSize: 24,
                         padding: 0,
-                        textAlign: 'center',
+                        textAlign: 'center'
                       }}
                     />
                     {i === 2 && (
@@ -329,7 +329,7 @@ export default function Login() {
                           position: 'relative',
                           top: '50%',
                           transform: 'translateY(-50%)',
-                          flexShrink: 0,
+                          flexShrink: 0
                         }}
                       />
                     )}
