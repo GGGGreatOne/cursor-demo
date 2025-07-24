@@ -24,6 +24,7 @@ export interface InputProps {
   subStr?: string
   onBlur?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>
   onValue?: (val: string) => void
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>
 }
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -68,27 +69,33 @@ const enforcer = (reg: RegExp, nextUserInput: string) => {
   return null
 }
 
-export default function Input({
-  focused,
-  placeholder,
-  onChange,
-  value,
-  disabled,
-  type,
-  outlined,
-  endAdornment,
-  maxWidth,
-  onValue,
-  onBlur,
-  label,
-  height,
-  error,
-  smallPlaceholder,
-  backgroundColor,
-  rows,
-  subStr,
-  ...rest
-}: InputProps & Omit<InputHTMLAttributes<HTMLInputElement>, 'color' | 'outline' | 'size'>) {
+export default React.forwardRef<
+  HTMLInputElement,
+  InputProps & Omit<InputHTMLAttributes<HTMLInputElement>, 'color' | 'outline' | 'size'>
+>(function Input(
+  {
+    placeholder,
+    onChange,
+    value,
+    disabled,
+    type,
+    outlined,
+    endAdornment,
+    maxWidth,
+    onValue,
+    onBlur,
+    label,
+    height,
+    error,
+    smallPlaceholder,
+    backgroundColor,
+    rows,
+    subStr,
+    inputProps,
+    ...rest
+  },
+  ref
+) {
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       if (type === 'unumber' || type === 'uint') {
@@ -158,7 +165,7 @@ export default function Input({
         color={error ? 'error' : 'primary'}
         fullWidth={true}
         placeholder={placeholder}
-        inputRef={input => input && focused && input.focus()}
+        inputRef={ref}
         onChange={handleChange}
         value={value}
         onBlur={handleBlur}
@@ -166,6 +173,7 @@ export default function Input({
         disabled={disabled}
         type={type}
         endAdornment={endAdornment && <span style={{ paddingRight: 20 }}>{endAdornment}</span>}
+        inputProps={inputProps}
         {...rest}
       />
       {subStr && (
@@ -175,4 +183,4 @@ export default function Input({
       )}
     </div>
   )
-}
+})
