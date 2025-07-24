@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 import Input from '../Input'
 
-export default function Login() {
+export default function Login({ onSuccess }: { onSuccess?: () => void }) {
   const [email, setEmail] = useState('')
   const [code, setCode] = useState(['', '', '', '', '', ''])
   const [error, setError] = useState('')
@@ -85,6 +85,7 @@ export default function Login() {
     }
     setError('')
     // 验证逻辑
+    if (onSuccess) onSuccess()
   }
 
   return (
@@ -101,19 +102,6 @@ export default function Login() {
         overflow: 'hidden'
       }}
     >
-      <Typography
-        sx={{
-          fontFamily: 'Inter',
-          fontWeight: 700,
-          fontSize: 40,
-          lineHeight: '1.2em',
-          color: '#fff',
-          textAlign: 'center',
-          mb: 0
-        }}
-      >
-        Get Access
-      </Typography>
       <Box
         sx={{
           width: { xs: '100%', sm: 310, md: 468 },
